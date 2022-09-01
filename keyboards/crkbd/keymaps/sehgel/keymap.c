@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //NAVIGATION LAYER
                     [NAVIGATION] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_HOME,   KC_UP,  KC_END, KC_PGUP, KC_BSPC,
+                         KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_INS, KC_HOME,   KC_UP,  KC_END, KC_PGUP, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_DEL, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_PSCR,
                     //|--------+--------+--------+--------+--------+--------|     NAVIGATION     |--------+--------+--------+--------+--------+--------|
