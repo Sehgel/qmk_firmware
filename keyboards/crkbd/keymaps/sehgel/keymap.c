@@ -21,31 +21,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum{
     QWERTY = SAFE_RANGE,
-    SELECT_ALL,
-    CUT,
-    COPY,
-    DUPLICATE,
-    PASTE,
-    SAVE,
-    UNDO,
-    REDO,
-    FIND,
-    FULL_REFRESH,
     OPEN_QUESTION_MARK,
     SMALL_ENIE,
     BIG_ENIE,
     CLOSE_QUESTION_MARK,
     SWITCH_AUDIO,
-    ALT_TAB,
-    ALT_F1,
-    ALT_F2,
-    ALT_F3,
-    ALT_F4,
-    ALT_F5,
     SWITCH_TO_QWERTY,
     SWITCH_TO_DVORAK,
-    SWITCH_TO_WORKMAN,
-    CONTROL
+    SWITCH_TO_WORKMAN
 };
 
 #define QWERTY 0
@@ -54,17 +37,7 @@ enum{
 #define NAVIGATION 3
 #define NUMPAD 4
 #define SYMBOLS 5
-#define SHORTCUTS 6 
-/*
-#define L_QWERTY 0
-#define L_DVORAK 1
-#define L_WORKMAN 2
-
-#define L_BASE QWERTY
-#define L_LOWER 2
-#define L_RAISE 4
-#define L_ADJUST 8  
-*/
+#define SHORTCUTS 6
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //QWERTY LAYOUT
@@ -120,13 +93,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //NUMPAD LAYER
                     [NUMPAD] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_ESC, KC_PSLS,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+                         KC_ESC, KC_PSLS,    KC_7,    KC_8,    KC_9, KC_BSPC,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_PAST, KC_PPLS,   KC_P4,   KC_P5,   KC_P6, KC_PMNS,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  
+                        KC_PMNS, KC_PAST,    KC_4,    KC_5,    KC_6, KC_PPLS,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
-                          KC_P0, KC_PDOT,   KC_P1,   KC_P2,   KC_P3, KC_PENT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          KC_P0, KC_PDOT,    KC_1,    KC_2,    KC_3, KC_PENT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                        KC_LWIN,  KC_LALT,  KC_LWIN,    KC_ENT,   KC_LALT,  KC_RALT
+                                                           KC_LWIN,  KC_LALT,  KC_SPC,   KC_ENT,   KC_LALT,  KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -139,20 +112,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
   KC_LSFT,OPEN_QUESTION_MARK,SMALL_ENIE,BIG_ENIE,CLOSE_QUESTION_MARK,XXXXXXX,                      KC_CIRC, KC_PPLS, KC_LCBR, KC_RCBR, KC_GRV,   KC_GRV,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                        XXXXXXX ,   KC_LWIN,  XXXXXXX,  KC_ENT,   XXXXXXX,   KC_RALT
+                                                        XXXXXXX ,   KC_LWIN,   KC_SPC,  KC_ENT,   XXXXXXX,   KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
 
                     //SHORTCUTS LAYER
                     [SHORTCUTS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                   SWITCH_AUDIO,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      XXXXXXX, XXXXXXX, XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI,
+                   SWITCH_AUDIO,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y, XXXXXXX, XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|      SHORTCUTS     |--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      XXXXXXX, XXXXXXX, XXXXXXX, SWITCH_TO_QWERTY, SWITCH_TO_DVORAK, SWITCH_TO_WORKMAN,
+                        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      XXXXXXX, XXXXXXX, XXXXXXX, SWITCH_TO_QWERTY, SWITCH_TO_DVORAK, SWITCH_TO_WORKMAN,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                        KC_LALT,  XXXXXXX,  XXXXXXX,    XXXXXXX,   XXXXXXX,  KC_RALT
+                                                        KC_LALT,  KC_LWIN,  KC_SPC,    KC_ENT,   XXXXXXX,  KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -253,56 +226,8 @@ bool oled_task_user(void) {/*
 bool is_alt_engaged = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
-   //set_keylog(keycode, record);a
+   //set_keylog(keycode, record);
         switch(keycode){
-            /*
-            case SELECT_ALL:
-                register_code(KC_LCTL);
-                tap_code(KC_A);
-                unregister_code(KC_LCTL);
-                return true;
-            case CUT:
-                register_code(KC_LCTL);
-                tap_code(KC_X);
-                unregister_code(KC_LCTL);
-                return true;
-            case COPY:
-                register_code(KC_LCTL);
-                tap_code(KC_C);
-                unregister_code(KC_LCTL);
-                return true;
-            case DUPLICATE:
-                register_code(KC_LCTL);
-                tap_code(KC_D);
-                unregister_code(KC_LCTL);
-                return true;
-            case PASTE:
-                register_code(KC_LCTL);
-                register_code(KC_V);
-                return true;
-            case SAVE:
-                register_code(KC_LCTL);
-                tap_code(KC_S);
-                unregister_code(KC_LCTL);
-                return true;
-            case UNDO:
-                register_code(KC_LCTL);
-                register_code(KC_Z);
-                return true;
-            case REDO:
-                register_code(KC_LCTL);
-                register_code(KC_Y);
-                return true;
-            case FIND:
-                register_code(KC_LCTL);
-                tap_code(KC_F);
-                unregister_code(KC_LCTL);
-                return true;
-            case FULL_REFRESH:
-                register_code(KC_LCTL);
-                tap_code(KC_F5);
-                unregister_code(KC_LCTL);
-                return true;*/
             case OPEN_QUESTION_MARK:
                 register_code(KC_LALT);
                 tap_code(KC_P1);
@@ -335,39 +260,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_F1);
                 unregister_code(KC_LALT);
                 return true;
-            /*case ALT_TAB:
-                if(!is_alt_engaged){
-                    register_code(KC_LALT);
-                    is_alt_engaged = true;
-                }
-                tap_code(KC_TAB);
-                return true;
-            case ALT_F1:
-                register_code(KC_LALT);
-                tap_code(KC_F1);
-                unregister_code(KC_LALT);
-                return true;
-            case ALT_F2:
-                register_code(KC_LALT);
-                tap_code(KC_F2);
-                unregister_code(KC_LALT);
-                return true;
-            case ALT_F3:
-                register_code(KC_LALT);
-                tap_code(KC_F3);
-                unregister_code(KC_LALT);
-                return true;
-            case ALT_F4:
-                register_code(KC_LALT);
-                tap_code(KC_F4);
-                unregister_code(KC_LALT);
-                return true;
-            case ALT_F5:
-                register_code(KC_LALT);
-                tap_code(KC_F5);
-                unregister_code(KC_LALT);
-                return true;
-            */
             case SWITCH_TO_QWERTY:
                 set_single_persistent_default_layer(QWERTY);
                 return true;
@@ -384,23 +276,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     else{
         switch(keycode){
-            /*
-            case PASTE:
-                unregister_code(KC_LCTL);
-                unregister_code(KC_V);
-                return true;
-            case UNDO:
-                unregister_code(KC_LCTL);
-                unregister_code(KC_Z);
-                return true;
-            case REDO:
-                unregister_code(KC_LCTL);
-                unregister_code(KC_Y);
-                return true;
-            case MO(1):
-                is_alt_engaged = false;
-                unregister_code(KC_LALT);
-                return true;*/
             case MO(6):
                 unregister_code(KC_LCTL);
                 return true;
