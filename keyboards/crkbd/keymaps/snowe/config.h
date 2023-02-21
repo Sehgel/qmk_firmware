@@ -54,3 +54,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define LAYER_STATE_8BIT
 #define SPLIT_WPM_ENABLE
+#define RGBLIGHT_SLEEP
