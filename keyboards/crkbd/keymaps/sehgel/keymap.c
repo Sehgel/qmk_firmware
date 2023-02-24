@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_PMNS, KC_PAST,    KC_4,    KC_5,    KC_6, KC_PPLS,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
-                          KC_P0, KC_PDOT,    KC_1,    KC_2,    KC_3, KC_PENT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                           KC_0, KC_PDOT,    KC_1,    KC_2,    KC_3, KC_PENT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                            KC_LWIN,  KC_LALT,  KC_SPC,   KC_ENT,   KC_LALT,  KC_RALT
                                                         //`--------------------------'  `--------------------------'
@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|      SHORTCUTS     |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, XXXXXXX, SWITCH_TO_QWERTY, SWITCH_TO_DVORAK, SWITCH_TO_WORKMAN,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                        KC_LALT,  KC_LWIN,  KC_SPC,    KC_ENT,   XXXXXXX,  KC_RALT
+                                                            KC_LALT, KC_LWIN,  KC_SPC,     KC_ENT, XXXXXXX, KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -223,6 +223,10 @@ bool oled_task_user(void) {/*
     oled_render_logo();
     return false;
 }
+void suspend_power_down_user(void) {
+    oled_off();
+}
+
 bool is_alt_engaged = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
