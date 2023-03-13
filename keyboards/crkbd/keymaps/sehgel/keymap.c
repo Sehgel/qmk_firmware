@@ -28,7 +28,10 @@ enum{
     SWITCH_AUDIO,
     TO_QWERTY,
     TO_DVORAK,
-    TO_WORKMAN
+    TO_WORKMAN,
+    UC_TO_WINC,
+    UC_TO_LINUX,
+    UC_TO_MAC
 };
 
 #define QWERTY 0
@@ -125,9 +128,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_TAB, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_MINS, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL, XXXXXXX,  UC_WIN, UC_LNX,  UC_MAC, XXXXXXX,                       KC_PIPE,  KC_EQL, KC_LBRC, KC_RBRC, KC_UNDS, KC_BSLS,
+KC_LCTL, XXXXXXX, UNICODE_MODE_WINC, UNICODE_MODE_LNX, UNICODE_MODE_MAC, XXXXXXX,                      KC_PIPE,  KC_EQL, KC_LBRC, KC_RBRC, KC_UNDS, KC_BSLS,
                     //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
-                       KC_LSFT,  XXXXXXX,X(L_QUESTION),ENIE,X(R_QUESTION), XXXXXXX,                KC_CIRC, KC_PPLS, KC_LCBR, KC_RCBR,  KC_GRV, KC_RSFT,
+                       KC_LSFT,  XXXXXXX,X(L_QUESTION),ENIE,KC_QUES, XXXXXXX,                      KC_CIRC, KC_PPLS, KC_LCBR, KC_RCBR,  KC_GRV, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                         XXXXXXX ,   KC_LWIN,   KC_SPC,  KC_ENT,   XXXXXXX,   KC_RALT
                                                         //`--------------------------'  `--------------------------'
