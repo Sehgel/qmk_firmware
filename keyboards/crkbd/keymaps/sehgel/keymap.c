@@ -29,6 +29,8 @@ enum{
     TO_QWERTY,
     TO_DVORAK,
     TO_WORKMAN,
+    TO_COLEMAK_DH,
+    TO_BEAKL27,
     UC_TO_WINC,
     UC_TO_LINUX,
     UC_TO_MAC
@@ -37,12 +39,14 @@ enum{
 #define QWERTY 0
 #define DVORAK 1
 #define WORKMAN 2
-#define NAVIGATION 3
-#define NUMPAD 4
-#define SYMBOLS 5
-#define SHORTCUTS 6
-#define ALT 7
-#define NUMPAD2 8
+#define COLEMAK_DH 3
+#define BEAKL27 4
+#define NAVIGATION 5
+#define NUMPAD 6
+#define SYMBOLS 7
+#define SHORTCUTS 8
+#define ALT 9
+#define NUMPAD2 10
 
 enum unicode_names {
     L_QUESTION,
@@ -97,6 +101,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                            MO(ALT), MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
+                    //COLEMAK_DH LAYOUT
+                    [COLEMAK_DH] = LAYOUT_split_3x6_3(
+                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+                         KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y,  KC_DOT, KC_BSPC,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                        KC_LCTL,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, KC_RCTL,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_SCLN,KC_QUOTE,KC_COMMA, KC_RSFT,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                                                           MO(ALT), MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
+                                                        //`--------------------------'  `--------------------------'
+                    ),
+                    //BEAKL27 LAYOUT
+                    [BEAKL27] = LAYOUT_split_3x6_3(
+                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+                         KC_TAB,    KC_Q,    KC_H,    KC_O,    KC_U,    KC_X,                         KC_G,    KC_C,    KC_M,    KC_R,    KC_Z, KC_BSPC,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                        KC_LCTL,    KC_Y,    KC_I,    KC_E,    KC_A,  KC_DOT,                         KC_D,    KC_S,    KC_T,    KC_N,    KC_B, KC_RCTL,
+                    //|--------+--------+--------+--------+--------+--------|       BEAKL27      |--------+--------+--------+--------+--------+--------|
+                        KC_LSFT,    KC_J,  KC_DQT,KC_COMMA,    KC_K,KC_QUOTE,                         KC_W,    KC_F,    KC_L,    KC_P,    KC_V, KC_RSFT,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                                                           MO(ALT), MO(NUMPAD), KC_SPC, KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
+                                                        //`--------------------------'  `--------------------------'
+                    ),
+
+
 
                     //NAVIGATION LAYER
                     [NAVIGATION] = LAYOUT_split_3x6_3(
@@ -118,7 +148,7 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_PMNS, KC_PAST,   KC_P4,   KC_P5,   KC_P6, KC_PPLS,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
-                          KC_P0,  KC_DOT,   KC_P1,   KC_P2,   KC_P3,  KC_ENT,               TO_QWERTY, TO_DVORAK, TO_WORKMAN, XXXXXXX, XXXXXXX, KC_RSFT,
+                          KC_P0,  KC_DOT,   KC_P1,   KC_P2,   KC_P3,  KC_ENT,               TO_QWERTY, TO_DVORAK, TO_WORKMAN, TO_COLEMAK_DH, TO_BEAKL27, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                              KC_DEL,KC_LALT,  KC_SPC,      KC_ENT, KC_LALT, MO(NUMPAD2)
                                                         //`--------------------------'  `--------------------------'
@@ -140,7 +170,7 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_TAB, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_MINS, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL, XXXXXXX, KC_PIPE, KC_TILD, KC_CIRC, XXXXXXX,                      KC_PIPE,  KC_EQL, KC_LBRC, KC_RBRC, KC_UNDS, KC_BSLS,
+                        KC_LCTL, KC_TILD, XXXXXXX, KC_SCLN, KC_COLON, XXXXXXX,                      KC_PIPE,  KC_EQL, KC_LBRC, KC_RBRC, KC_UNDS, KC_BSLS,
                     //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
                         KC_LSFT, XXXXXXX,X(L_QUESTION),ENIE,KC_QUES, XXXXXXX,                      KC_CIRC, KC_PPLS, KC_LCBR, KC_RCBR,  KC_GRV, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -151,11 +181,11 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //SHORTCUTS LAYER
                     [SHORTCUTS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                   SWITCH_AUDIO,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                         KC_J,    KC_F,    KC_U,    KC_P,KC_QUOTE, KC_BSPC,
+                         KC_ESC,    KC_Q,    KC_W, XXXXXXX,    KC_D,    KC_C,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                         KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,KC_QUOTE,
+                        KC_LCTL,    KC_A,    KC_S, XXXXXXX,    KC_C,    KC_V,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|     SHORTCUTS      |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L,KC_COMMA,  KC_DOT, KC_SCLN, KC_RSFT,
+                        KC_LSFT,    KC_Z,    KC_X, XXXXXXX,    KC_Z,    KC_Y,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                             KC_LALT, KC_LWIN,  KC_SPC,     KC_ENT, XXXXXXX, KC_RALT
                                                         //`--------------------------'  `--------------------------'
@@ -193,14 +223,44 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (!is_keyboard_master()) {
-    return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
+  if (true) {
+    return OLED_ROTATION_270;  // flips the display 180 degrees if offhand
   }
   return rotation;
 }
 
 void oled_render_layer_state(void) {
-    oled_write_P(PSTR("Layer: "), false);
+    //oled_write_P(PSTR("Mode: \n"), false);
+    switch(get_highest_layer(default_layer_state)){
+        case QWERTY:
+            oled_write_ln_P(PSTR("Qwerty"),false);
+            break;
+        case DVORAK:
+            oled_write_ln_P(PSTR("Dvorak"),false);
+            break;
+        case WORKMAN:
+            oled_write_ln_P(PSTR("Workman"),false);
+            break;
+        case COLEMAK_DH:
+            oled_write_ln_P(PSTR("Colemak-DH"),false);
+            break;
+        case BEAKL27:
+            oled_write_ln_P(PSTR("Beakl27"),false);
+            break;
+    }
+
+    oled_write_ln_P(PSTR("\n"),false);
+    switch (get_unicode_input_mode()) {
+        case UC_LNX:
+            oled_write_ln_P(PSTR("Linux"),false);
+            break;
+        case UC_OSX:
+            oled_write_ln_P(PSTR("MacOS"),false);
+            break;
+        case UC_WINC:
+            oled_write_ln_P(PSTR("Windows"),false);
+            break;
+    }
     /*
     switch (layer_state) {
         case L_BASE:
@@ -225,9 +285,9 @@ void oled_render_layer_state(void) {
 char keylog_str[24] = {};
 
 const char code_to_name[60] = {
-    ' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f',
-    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    ' ', ' ', ' ', ' ', 'A', 'B', 'C', 'D', 'E', 'F',
+    'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+    'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
     'R', 'E', 'B', 'T', '_', '-', '=', '[', ']', '\\',
     '#', ';', '\'', '`', ',', '.', '/', ' ', ' ', ' '};
@@ -273,14 +333,14 @@ void oled_render_logo(void) {
     0};
     oled_write_P(crkbd_logo, false);
 }
-bool oled_task_user(void) {/*
+bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_keylog();
     } else {
         oled_render_logo();
-    }*/
-    oled_render_logo();
+    }
+    //oled_render_logo();
     return false;
 }
 void suspend_power_down_user(void) {
@@ -333,6 +393,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case TO_WORKMAN:
                 set_single_persistent_default_layer(WORKMAN);
                 return true;
+            case TO_COLEMAK_DH:
+                set_single_persistent_default_layer(COLEMAK_DH);
+                return true;
+            case TO_BEAKL27:
+                set_single_persistent_default_layer(BEAKL27);
+                return true;
+            //BEAKL Home row mod
+            case LT(SHORTCUTS,KC_E):
+                register_code(KC_LCTL);
+                return true;
             case MO(SHORTCUTS):
                 register_code(KC_LCTL);
                 return true;
@@ -343,6 +413,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     else{
         switch(keycode){
+            //BEAKL Home row mod
+            case LT(SHORTCUTS,KC_E):
+                unregister_code(KC_LCTL);
+                return true;
             case MO(SHORTCUTS):
                 unregister_code(KC_LCTL);
                 return true;
