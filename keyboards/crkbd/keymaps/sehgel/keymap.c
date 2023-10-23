@@ -47,6 +47,7 @@ enum{
 #define SHORTCUTS 8
 #define ALT 9
 #define NUMPAD2 10
+#define GAMEPLAY_NUMPAD 11
 
 enum unicode_names {
     L_QUESTION,
@@ -74,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|       QWERTY       |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT,KC_QUOTE, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                          MO(ALT), MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
+                                                          MO(ALT), MO(GAMEPLAY_NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
                     //DVORAK LAYOUT
@@ -165,6 +166,18 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                                                             KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
+                    //NUMPAD2 LAYER
+                    [GAMEPLAY_NUMPAD] = LAYOUT_split_3x6_3(
+                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+                        XXXXXXX, XXXXXXX,    KC_1,    KC_2,    KC_3,   KC_F1,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                        XXXXXXX, XXXXXXX,    KC_4,    KC_5,    KC_6,   KC_F2,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                    //|--------+--------+--------+--------+--------+--------|       NUMPAD2      |--------+--------+--------+--------+--------+--------|
+                        KC_LSFT, XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                                                            KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT
+                                                        //`--------------------------'  `--------------------------'
+                    ),
                     //SYMBOLS LAYER
                     [SYMBOLS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -224,12 +237,12 @@ uint32_t layer_state_set_user(uint32_t state) {
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (true) {
-    return OLED_ROTATION_270;  // flips the display 180 degrees if offhand
+    return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
   }
   return rotation;
 }
 
-void oled_render_layer_state(void) {
+void oled_render_type_layer(void) {
     //oled_write_P(PSTR("Mode: \n"), false);
     switch(get_highest_layer(default_layer_state)){
         case QWERTY:
@@ -248,8 +261,9 @@ void oled_render_layer_state(void) {
             oled_write_ln_P(PSTR("Beakl27"),false);
             break;
     }
-
-    oled_write_ln_P(PSTR("\n"),false);
+}
+void oled_render_input_layer(void) {
+    //oled_write_ln_P(PSTR("\n"),false);
     switch (get_unicode_input_mode()) {
         case UC_LNX:
             oled_write_ln_P(PSTR("Linux"),false);
@@ -261,26 +275,7 @@ void oled_render_layer_state(void) {
             oled_write_ln_P(PSTR("Windows"),false);
             break;
     }
-    /*
-    switch (layer_state) {
-        case L_BASE:
-            oled_write_ln_P(PSTR("Default"), false);
-            break;
-        case L_LOWER:
-            oled_write_ln_P(PSTR("Lower"), false);
-            break;
-        case L_RAISE:
-            oled_write_ln_P(PSTR("Raise"), false);
-            break;
-        case L_ADJUST:
-        case L_ADJUST|L_LOWER:
-        case L_ADJUST|L_RAISE:
-        case L_ADJUST|L_LOWER|L_RAISE:
-            oled_write_ln_P(PSTR("Adjust"), false);
-            break;
-    }*/
 }
-
 
 char keylog_str[24] = {};
 
@@ -335,12 +330,10 @@ void oled_render_logo(void) {
 }
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
-        oled_render_layer_state();
-        oled_render_keylog();
+        oled_render_type_layer();
     } else {
-        oled_render_logo();
+        oled_render_input_layer();
     }
-    //oled_render_logo();
     return false;
 }
 void suspend_power_down_user(void) {
