@@ -32,7 +32,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Select hand configuration */
 
 //#define MASTER_LEFT
- #define MASTER_RIGHT
+#define MASTER_RIGHT
+
+/*#define SPLIT_WPM_ENABLE
+#define SPLIT_LED_STATE_ENABLE
+#define SPLIT_MODS_ENABLE
+*/
+#define SPLIT_LAYER_STATE_ENABLE
 // #define EE_HANDS
 
 //#define TAPPING_FORCE_HOLD
