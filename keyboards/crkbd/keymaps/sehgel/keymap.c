@@ -33,7 +33,8 @@ enum{
     TO_BEAKL43,
     UC_TO_WINC,
     UC_TO_LINUX,
-    UC_TO_MAC
+    UC_TO_MAC,
+    CTL_MOD
 };
 
 #define QWERTY 0
@@ -87,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|       DVORAK       |--------+--------+--------+--------+--------+--------|
                         KC_LSFT, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                          MO(ALT), MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
+                                                          KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
                     //WORKMAN LAYOUT
@@ -99,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|       WORKMAN      |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L,KC_COMMA,  KC_DOT, KC_SCLN, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                           MO(ALT), MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
+                                                           KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
                     //COLEMAK_DH LAYOUT
@@ -111,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_SCLN,KC_QUOTE,KC_COMMA, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                           MO(ALT), MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
+                                                           KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
                     //BEAKL27 LAYOUT
@@ -119,11 +120,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_TAB,    KC_Q,    KC_H,    KC_O,    KC_U,KC_COMMA,                         KC_G,    KC_L,    KC_R,    KC_F,    KC_B, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_J,    KC_I,    KC_E,    KC_A,    KC_Y,                         KC_D,    KC_T,    KC_S,    KC_N,    KC_P, KC_RCTL,
+                        KC_LCTL,    KC_J,    KC_I, LT(SHORTCUTS,KC_E),    KC_A,    KC_Y,                         KC_D,    KC_T,    KC_S,    KC_N,    KC_P, KC_RCTL,
                     //|--------+--------+--------+--------+--------+--------|       BEAKL43      |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_X,    KC_K, KC_QUOTE, KC_DOT, KC_SCLN,                         KC_V,    KC_M,    KC_C,    KC_W,    KC_Z, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                           MO(ALT), MO(NUMPAD), KC_SPC, KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
+                                                        KC_LALT, MO(NUMPAD), KC_SPC, KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -194,11 +195,11 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //SHORTCUTS LAYER
                     [SHORTCUTS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_ESC,    KC_Q,    KC_W, XXXXXXX,    KC_D,    KC_C,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                         KC_ESC,    KC_K,    KC_D, XXXXXXX,    KC_R,    KC_Y,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_A,    KC_S, XXXXXXX,    KC_C,    KC_V,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                        KC_LCTL,    KC_A,    KC_S, XXXXXXX,    KC_F,    KC_G,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|     SHORTCUTS      |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_Z,    KC_X, XXXXXXX,    KC_Z,    KC_Y,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                        KC_LSFT,    KC_Z,    KC_X, XXXXXXX,    KC_C,    KC_V,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                             KC_LALT, KC_LWIN,  KC_SPC,     KC_ENT, XXXXXXX, KC_RALT
                                                         //`--------------------------'  `--------------------------'
@@ -222,13 +223,13 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
 
 uint32_t layer_state_set_user(uint32_t state) {
   switch(biton32(state)) {
-  case NUMPAD:
-    // turn on numlock, if it isn't already on.
-    if (!(host_keyboard_leds() & (1<<USB_LED_NUM_LOCK))) {
-      register_code(KC_NUMLOCK);
-      unregister_code(KC_NUMLOCK);
-    }
-    break;
+    case NUMPAD:
+        // turn on numlock, if it isn't already on.
+        if (!(host_keyboard_leds() & (1<<USB_LED_NUM_LOCK))) {
+        register_code(KC_NUMLOCK);
+        unregister_code(KC_NUMLOCK);
+        }
+        break;
   }
   return state;
 };
@@ -340,10 +341,10 @@ void suspend_power_down_user(void) {
     oled_off();
 }
 
-bool is_alt_engaged = false;
+bool ctl_interrupted = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
-   //set_keylog(keycode, record);
+        ctl_interrupted = true;
         switch(keycode){
             case OPEN_QUESTION_MARK:
                 register_code(KC_LALT);
@@ -392,29 +393,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case TO_BEAKL43:
                 set_single_persistent_default_layer(BEAKL43);
                 return true;
-            //BEAKL Home row mod
+            //BEAKL43 Home row mods
             case LT(SHORTCUTS,KC_E):
                 register_code(KC_LCTL);
-                return true;
-            case MO(SHORTCUTS):
-                register_code(KC_LCTL);
-                return true;
-            case MO(ALT):
-                register_code(KC_LALT);
+                if(record->tap.count){
+                    unregister_code(KC_LCTL);
+                    return true;
+                }
+                else{
+                    layer_on(SHORTCUTS);
+                    return false;
+                }
+                
+                
+                //layer_on(SHORTCUTS);
+                //ctl_interrupted = false;
                 return true;
         }
     }
+    //
     else{
         switch(keycode){
-            //BEAKL Home row mod
+            //BEAKL43 Home row mods
+            
             case LT(SHORTCUTS,KC_E):
                 unregister_code(KC_LCTL);
-                return true;
-            case MO(SHORTCUTS):
-                unregister_code(KC_LCTL);
-                return true;
-            case MO(ALT):
-                unregister_code(KC_LALT);
+                layer_off(SHORTCUTS);
+                /*layer_off(SHORTCUTS);
+                if(!ctl_interrupted){
+                    tap_code(KC_E);
+                }*/
                 return true;
         }
     }
