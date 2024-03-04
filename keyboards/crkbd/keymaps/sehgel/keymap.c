@@ -201,7 +201,7 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //|--------+--------+--------+--------+--------+--------|     SHORTCUTS      |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_Z,    KC_X, XXXXXXX,    KC_C,    KC_V,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                            KC_LALT, KC_LWIN,  KC_SPC,     KC_ENT, XXXXXXX, KC_RALT
+                                                            KC_LALT, SWITCH_AUDIO,  KC_SPC,     KC_ENT, XXXXXXX, KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
 
