@@ -120,11 +120,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_TAB,    KC_Q,    KC_H,    KC_O,    KC_U,KC_COMMA,                         KC_G,    KC_L,    KC_R,    KC_F,    KC_B, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_J,    KC_I, LT(SHORTCUTS,KC_E),    KC_A,    KC_Y,                         KC_D,    KC_T,    KC_S,    KC_N,    KC_P, KC_RCTL,
+                  MO(SHORTCUTS),    KC_J,    KC_I,    KC_E,    KC_A,    KC_Y,                         KC_D,    KC_T,    KC_S,    KC_N,    KC_P, KC_RCTL,
                     //|--------+--------+--------+--------+--------+--------|       BEAKL43      |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_X,    KC_K, KC_QUOTE, KC_DOT, KC_SCLN,                         KC_V,    KC_M,    KC_C,    KC_W,    KC_Z, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                        KC_LALT, MO(NUMPAD), KC_SPC, KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
+                                                          KC_LALT, MO(NUMPAD), KC_SPC,  KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -195,13 +195,13 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //SHORTCUTS LAYER
                     [SHORTCUTS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_ESC,    KC_K,    KC_D, XXXXXXX,    KC_R,    KC_Y,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                         KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_A,    KC_S, XXXXXXX,    KC_F,    KC_G,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                        KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|     SHORTCUTS      |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_Z,    KC_X, XXXXXXX,    KC_C,    KC_V,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                            KC_LALT, SWITCH_AUDIO,  KC_SPC,     KC_ENT, XXXXXXX, KC_RALT
+                                                       KC_LALT, SWITCH_AUDIO,  KC_SPC,     KC_ENT, XXXXXXX, KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -393,6 +393,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case TO_BEAKL43:
                 set_single_persistent_default_layer(BEAKL43);
                 return true;
+            case MO(SHORTCUTS):
+                register_code(KC_LCTL);
+                return true;
             //BEAKL43 Home row mods
             case LT(SHORTCUTS,KC_E):
                 register_code(KC_LCTL);
@@ -414,8 +417,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //
     else{
         switch(keycode){
+            case MO(SHORTCUTS):
+                unregister_code(KC_LCTL);
+                return true;
             //BEAKL43 Home row mods
-            
             case LT(SHORTCUTS,KC_E):
                 unregister_code(KC_LCTL);
                 layer_off(SHORTCUTS);
