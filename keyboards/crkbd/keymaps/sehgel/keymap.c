@@ -54,7 +54,8 @@ enum unicode_names {
     L_QUESTION,
     L_ENIE,
     U_ENIE,
-    R_QUESTION
+    R_QUESTION,
+    L_EXCLAMATION,
 };
 
 #define ENIE XP(L_ENIE, U_ENIE)
@@ -63,7 +64,8 @@ const uint32_t unicode_map[] PROGMEM = {
     [L_QUESTION]  = L'¿',
     [L_ENIE] = L'ñ',
     [U_ENIE] = L'Ñ',
-    [R_QUESTION]  = L'?'
+    [R_QUESTION]  = L'?',
+    [L_EXCLAMATION]  = L'¡'
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -182,11 +184,11 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //SYMBOLS LAYER
                     [SYMBOLS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_TAB, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_MINS, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_BSPC,
+               X(L_EXCLAMATION), KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_MINS, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LCTL, KC_TILD, XXXXXXX, KC_LABK, KC_RABK, XXXXXXX,                      KC_PIPE,  KC_EQL, KC_LBRC, KC_RBRC, KC_UNDS, KC_BSLS,
                     //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT, XXXXXXX,X(L_QUESTION),ENIE,KC_QUES, XXXXXXX,                      KC_CIRC, KC_PPLS, KC_LCBR, KC_RCBR,  KC_GRV, KC_RSFT,
+               KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),ENIE,KC_QUES, KC_EXLM,                      KC_CIRC, KC_PPLS, KC_LCBR, KC_RCBR,  KC_GRV, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                         XXXXXXX ,   KC_LWIN,   KC_SPC,  KC_ENT,   XXXXXXX,   KC_RALT
                                                         //`--------------------------'  `--------------------------'
