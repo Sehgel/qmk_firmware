@@ -124,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                   MO(SHORTCUTS),    KC_J,    KC_I,    KC_E,    KC_A,    KC_Y,                         KC_D,    KC_T,    KC_S,    KC_N,    KC_P, KC_RCTL,
                     //|--------+--------+--------+--------+--------+--------|       BEAKL43      |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_X,    KC_K, KC_QUOTE, KC_DOT, KC_SCLN,                         KC_V,    KC_M,    KC_C,    KC_W,    KC_Z, KC_RSFT,
+                        KC_LSFT,    KC_X,    KC_K, KC_SCLN, KC_QUOTE, KC_DOT,                         KC_V,    KC_M,    KC_C,    KC_W,    KC_Z, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                           KC_LALT, MO(NUMPAD), KC_SPC,  KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
@@ -188,7 +188,7 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LCTL, KC_TILD, XXXXXXX, KC_LABK, KC_RABK, XXXXXXX,                      KC_PIPE,  KC_EQL, KC_LBRC, KC_RBRC, KC_UNDS, KC_BSLS,
                     //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
-               KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),ENIE,KC_QUES, KC_EXLM,                      KC_CIRC, KC_PPLS, KC_LCBR, KC_RCBR,  KC_GRV, KC_RSFT,
+               KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),ENIE,KC_QUES, KC_EXLM,                      KC_GRV, KC_PPLS, KC_LCBR, KC_RCBR,  KC_CIRC, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                         XXXXXXX ,   KC_LWIN,   KC_SPC,  KC_ENT,   XXXXXXX,   KC_RALT
                                                         //`--------------------------'  `--------------------------'
