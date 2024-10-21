@@ -34,7 +34,8 @@ enum{
     UC_TO_WINC,
     UC_TO_LINUX,
     UC_TO_MAC,
-    CTL_MOD
+    CTL_MOD,
+    SHIFT_CRTL_ALT_MOD,
 };
 
 #define QWERTY 0
@@ -139,9 +140,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LCTL, XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX,                       KC_DEL, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_PSCR,
                     //|--------+--------+--------+--------+--------+--------|     NAVIGATION     |--------+--------+--------+--------+--------+--------|
-KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,                       KC_INS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,                       KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                            KC_LALT, KC_LWIN,  KC_SPC,   KC_ENT,   KC_LALT, XXXXXXX
+                                                KC_LALT,  SHIFT_CRTL_ALT_MOD,  KC_SPC,     KC_ENT, KC_LALT, KC_LWIN
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -395,6 +396,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case TO_BEAKL43:
                 set_single_persistent_default_layer(BEAKL43);
                 return true;
+            case SHIFT_CRTL_ALT_MOD:
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
             case MO(SHORTCUTS):
                 register_code(KC_LCTL);
                 return true;
@@ -419,6 +424,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //
     else{
         switch(keycode){
+            case SHIFT_CRTL_ALT_MOD:
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LALT);
+                return true;
             case MO(SHORTCUTS):
                 unregister_code(KC_LCTL);
                 return true;
