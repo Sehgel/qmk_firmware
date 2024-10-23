@@ -170,13 +170,13 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                                                             KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
-                    //NUMPAD2 LAYER
+                    //GAMEPLAY LAYER
                     [GAMEPLAY_NUMPAD] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
-                    //|--------+--------+--------+--------+--------+--------|       NUMPAD2      |--------+--------+--------+--------+--------+--------|
+                        KC_PMNS,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
+                    //|--------+--------+--------+--------+--------+--------|  GAMEPLAY NUMPAD   |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,   KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_ENT,                    TO_QWERTY, TO_DVORAK, TO_WORKMAN, TO_COLEMAK_DH, TO_BEAKL43, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                             KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT
@@ -198,7 +198,7 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //SHORTCUTS LAYER
                     [SHORTCUTS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
+                         KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|     SHORTCUTS      |--------+--------+--------+--------+--------+--------|
@@ -219,7 +219,7 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                            KC_LALT,SWITCH_AUDIO,KC_SPC,  KC_ENT,   XXXXXXX, KC_RALT
                                                         //`--------------------------'  `--------------------------'
-                    ),
+                    )
 
 };
 
@@ -403,26 +403,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case MO(SHORTCUTS):
                 register_code(KC_LCTL);
                 return true;
-            //BEAKL43 Home row mods
-            case LT(SHORTCUTS,KC_E):
-                register_code(KC_LCTL);
-                if(record->tap.count){
-                    unregister_code(KC_LCTL);
-                    return true;
-                }
-                else{
-                    layer_on(SHORTCUTS);
-                    return false;
-                }
-                
-                
-                //layer_on(SHORTCUTS);
-                //ctl_interrupted = false;
-                return true;
         }
     }
-    //
-    else{
+    else {
         switch(keycode){
             case SHIFT_CRTL_ALT_MOD:
                 unregister_code(KC_LSFT);
@@ -431,15 +414,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return true;
             case MO(SHORTCUTS):
                 unregister_code(KC_LCTL);
-                return true;
-            //BEAKL43 Home row mods
-            case LT(SHORTCUTS,KC_E):
-                unregister_code(KC_LCTL);
-                layer_off(SHORTCUTS);
-                /*layer_off(SHORTCUTS);
-                if(!ctl_interrupted){
-                    tap_code(KC_E);
-                }*/
                 return true;
         }
     }
