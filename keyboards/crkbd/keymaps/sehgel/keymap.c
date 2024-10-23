@@ -136,24 +136,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //NAVIGATION LAYER
                     [NAVIGATION] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_TAB, XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI,  KC_APP,                       KC_INS, KC_HOME,   KC_UP,  KC_END, KC_PGUP, KC_BSPC,
+                         KC_TAB,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_INS, KC_HOME,   KC_UP,  KC_END, KC_PGUP, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL, XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX,                       KC_DEL, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_PSCR,
+                        KC_LCTL,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,                       KC_DEL, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_LWIN,
                     //|--------+--------+--------+--------+--------+--------|     NAVIGATION     |--------+--------+--------+--------+--------+--------|
-KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,                       KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,
+                        KC_LSFT,  KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,                        KC_16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_APP,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                KC_LALT,  SHIFT_CRTL_ALT_MOD,  KC_SPC,     KC_ENT, KC_LALT, KC_LWIN
+                                                KC_LALT,  SHIFT_CRTL_ALT_MOD,  KC_SPC,     KC_ENT, KC_LALT,  KC_F21
                                                         //`--------------------------'  `--------------------------'
                     ),
 
                     //NUMPAD LAYER
                     [NUMPAD] = LAYOUT_split_3x6_3(
+                    //PSLS = /
+                    //PMNS = -
+                    //PAST = *
+                    //PPLS = +
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_ESC, KC_PSLS,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+                         KC_ESC,   KC_P0,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      KC_PSCR, XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI, UNICODE_MODE_WINC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_PMNS, KC_PAST,   KC_P4,   KC_P5,   KC_P6, KC_PPLS,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
+                        KC_PAST, KC_PPLS,   KC_P4,   KC_P5,   KC_P6,  KC_DOT,                      XXXXXXX, XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, UNICODE_MODE_LNX,
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
-                          KC_P0,  KC_DOT,   KC_P1,   KC_P2,   KC_P3,  KC_ENT,               TO_QWERTY, TO_DVORAK, TO_WORKMAN, TO_COLEMAK_DH, TO_BEAKL43, KC_RSFT,
+                        KC_PSLS, KC_PMNS,   KC_P1,   KC_P2,   KC_P3,  KC_ENT,         TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43, UNICODE_MODE_MAC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                              KC_DEL,KC_LALT,  KC_SPC,      KC_ENT, KC_LALT, MO(NUMPAD2)
                                                         //`--------------------------'  `--------------------------'
@@ -211,13 +215,13 @@ KC_LSFT,XXXXXXX,UNICODE_MODE_WINC,UNICODE_MODE_LNX,UNICODE_MODE_MAC, XXXXXXX,   
                     //ALT LAYER
                     [ALT] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_TAB,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                         KC_J,    KC_F,    KC_U,    KC_P,KC_QUOTE, KC_BSPC,
+                         KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_B,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                         KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_RCTL,
+                        KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RCTL,
                     //|--------+--------+--------+--------+--------+--------|    ALT SHORTCUTS   |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L,KC_COMMA,  KC_DOT, KC_SCLN, KC_RSFT,
+                        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_V,                         KC_N,    KC_M, KC_COMM,  KC_DOT,KC_QUOTE, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                           KC_LALT,SWITCH_AUDIO,KC_SPC,  KC_ENT,   XXXXXXX, KC_RALT
+                                                           KC_LALT,SWITCH_AUDIO,KC_SPC,  KC_ENT,   XXXXXXX, KC_LWIN
                                                         //`--------------------------'  `--------------------------'
                     )
 
