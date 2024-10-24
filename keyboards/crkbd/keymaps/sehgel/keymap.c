@@ -36,6 +36,7 @@ enum{
     UC_TO_MAC,
     CTL_MOD,
     SHIFT_CRTL_ALT_MOD,
+    EMOJI_KEY
 };
 
 #define QWERTY 0
@@ -82,6 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                           KC_LALT, MO(GAMEPLAY_NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
+
                     //DVORAK LAYOUT
                     [DVORAK] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -94,6 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                           KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
+
                     //WORKMAN LAYOUT
                     [WORKMAN] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -106,6 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                            KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
+
                     //COLEMAK_DH LAYOUT
                     [COLEMAK_DH] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -118,6 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                            KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
+
                     //BEAKL27 LAYOUT
                     [BEAKL43] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -130,8 +135,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                           KC_LALT, MO(NUMPAD), KC_SPC,  KC_ENT, MO(NAVIGATION), MO(SYMBOLS)
                                                         //`--------------------------'  `--------------------------'
                     ),
-
-
 
                     //NAVIGATION LAYER
                     [NAVIGATION] = LAYOUT_split_3x6_3(
@@ -148,10 +151,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                     //NUMPAD LAYER
                     [NUMPAD] = LAYOUT_split_3x6_3(
-                    //PSLS = /
-                    //PMNS = -
-                    //PAST = *
-                    //PPLS = +
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_ESC,   KC_P0,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      KC_PSCR, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, UNICODE_MODE_WINC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -162,6 +161,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                              KC_DEL,KC_LALT,  KC_SPC,      KC_ENT, KC_LSFT, MO(NUMPAD2)
                                                         //`--------------------------'  `--------------------------'
                     ),
+
                     //NUMPAD2 LAYER
                     [NUMPAD2] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -174,26 +174,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                             KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
-                    //GAMEPLAY LAYER
+
+                    //GAMEPLAY LAYER TODO: Change the Fs from the left side.
                     [GAMEPLAY_NUMPAD] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_PMNS,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
                     //|--------+--------+--------+--------+--------+--------|  GAMEPLAY NUMPAD   |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,   KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_ENT,                    TO_QWERTY, TO_DVORAK, TO_WORKMAN, TO_COLEMAK_DH, TO_BEAKL43, KC_RSFT,
+                        KC_LSFT,   KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_ENT,                       KC_F13,  KC_F14,  KC_F14,  KC_F15,  KC_F16, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                             KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT
                                                         //`--------------------------'  `--------------------------'
                     ),
-                    //SYMBOLS LAYER
+
+                    //SYMBOLS LAYER TODO: Minus in right side is duplicated, find a replacement
                     [SYMBOLS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                X(L_EXCLAMATION), KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_MINS, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL, KC_TILD, XXXXXXX, KC_LABK, KC_RABK, XXXXXXX,                      KC_PIPE,  KC_EQL, KC_LBRC, KC_RBRC, KC_UNDS, KC_BSLS,
+                        KC_TILD, KC_BSLS, KC_LABK, KC_RABK, KC_PSLS, KC_UNDS,                     KC_MINUS,  KC_EQL, KC_LBRC, KC_RBRC, KC_PPLS, KC_CIRC,
                     //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
-               KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),ENIE,KC_QUES, KC_EXLM,                      KC_GRV, KC_PPLS, KC_LCBR, KC_RCBR,  KC_CIRC, KC_RSFT,
+               KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),ENIE,KC_QUES, KC_EXLM,                       KC_GRV, KC_PIPE, KC_LCBR, KC_RCBR,EMOJI_KEY, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                         XXXXXXX ,   KC_LWIN,   KC_SPC,  KC_ENT,   XXXXXXX,   KC_RALT
                                                         //`--------------------------'  `--------------------------'
@@ -204,7 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, XXXXXXX,
+                        KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RCTL,
                     //|--------+--------+--------+--------+--------+--------|     SHORTCUTS      |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT,KC_QUOTE, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -406,6 +408,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LALT);
             case MO(SHORTCUTS):
                 register_code(KC_LCTL);
+                return true;
+            case EMOJI_KEY:
+                register_code(KC_LWIN);
+                tap_code(KC_DOT);
+                unregister_code(KC_LWIN);
                 return true;
         }
     }
