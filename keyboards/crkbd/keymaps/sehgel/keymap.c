@@ -48,7 +48,6 @@ enum{
 #define NUMPAD 6
 #define SYMBOLS 7
 #define SHORTCUTS 8
-#define ALT 9
 #define NUMPAD2 10
 #define GAMEPLAY_NUMPAD 11
 
@@ -157,13 +156,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //
                     [NUMPAD] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_ESC,  KC_DEL,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      KC_PSCR, RGB_HUI, RGB_SAI, RGB_VAI, KC_MNXT, UNICODE_MODE_WINC,
+                         KC_ESC,  KC_DEL,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      KC_PSCR, RGB_HUI, RGB_SAI, RGB_VAI, KC_VOLU, UNICODE_MODE_WINC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                          KC_P0, KC_PSLS,   KC_P4,   KC_P5,   KC_P6, KC_PAST,                      KC_MPLY, KC_VOLD, KC_MUTE, KC_VOLU, KC_MPRV, UNICODE_MODE_LNX,
+                          KC_P0, KC_PSLS,   KC_P4,   KC_P5,   KC_P6, KC_PAST,                      KC_MUTE, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, UNICODE_MODE_LNX,
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
                          KC_DOT, KC_PMNS,   KC_P1,   KC_P2,   KC_P3, KC_PPLS,         TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43, UNICODE_MODE_MAC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                             KC_SPC,KC_LALT, KC_ENT,      KC_ENT, KC_LSFT, MO(NUMPAD2)
+                                                             KC_ENT, KC_LALT, KC_SPC,      KC_ENT, KC_LSFT, MO(NUMPAD2)
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -217,21 +216,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                        KC_LALT, SWITCH_AUDIO,  KC_SPC,     KC_ENT, XXXXXXX, KC_RALT
                                                         //`--------------------------'  `--------------------------'
-                    ),
-
-                    //ALT LAYER
-                    [ALT] = LAYOUT_split_3x6_3(
-                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_B,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RCTL,
-                    //|--------+--------+--------+--------+--------+--------|    ALT SHORTCUTS   |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_V,                         KC_N,    KC_M, KC_COMM,  KC_DOT,KC_QUOTE, KC_RSFT,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                           KC_LALT,SWITCH_AUDIO,KC_SPC,  KC_ENT,   XXXXXXX, KC_LWIN
-                                                        //`--------------------------'  `--------------------------'
                     )
-
 };
 
 
@@ -240,8 +225,8 @@ uint32_t layer_state_set_user(uint32_t state) {
     case NUMPAD:
         // turn on numlock, if it isn't already on.
         if (!(host_keyboard_leds() & (1<<USB_LED_NUM_LOCK))) {
-        register_code(KC_NUMLOCK);
-        unregister_code(KC_NUMLOCK);
+            register_code(KC_NUMLOCK);
+            unregister_code(KC_NUMLOCK);
         }
         break;
   }
@@ -251,29 +236,29 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (true) {
-    return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
-  }
-  return rotation;
+    if (is_keyboard_master()) {
+        return OLED_ROTATION_270;  // flips the display 180 degrees if offhand
+    }
+    return OLED_ROTATION_270;
+  //return rotation;
 }
 
 void oled_render_type_layer(void) {
-    //oled_write_P(PSTR("Mode: \n"), false);
     switch(get_highest_layer(default_layer_state)){
         case QWERTY:
-            oled_write_ln_P(PSTR("Qwerty"),false);
+            oled_write_ln_P(PSTR("\n\n\n\n   Q\n   w\n   e\n   r\n   t\n   y\n\n\n\n"),false);
             break;
         case DVORAK:
-            oled_write_ln_P(PSTR("Dvorak"),false);
+            oled_write_ln_P(PSTR("\n\n\n\n   D\n   v\n   o\n   r\n   a\n   k\n\n\n\n"),false);
             break;
         case WORKMAN:
-            oled_write_ln_P(PSTR("Workman"),false);
+            oled_write_ln_P(PSTR("\n\n\n\n   W\n   o\n   r\n   k\n   m\n   a\n   n\n\n\n\n"),false);
             break;
         case COLEMAK_DH:
-            oled_write_ln_P(PSTR("Colemak-DH"),false);
+            oled_write_ln_P(PSTR("\n\n\n\n   C\n   o\n   l\n   e\n   m\n   a\n   k\n   -\n   D\n   H\n\n\n\n"),false);
             break;
         case BEAKL43:
-            oled_write_ln_P(PSTR("Beakl43"),false);
+            oled_write_ln_P(PSTR("\n\n\n\n   B\n   e\n   a\n   k\n   l\n   4\n   3\n\n\n\n"),false);
             break;
     }
 }
@@ -281,17 +266,17 @@ void oled_render_input_layer(void) {
     //oled_write_ln_P(PSTR("\n"),false);
     switch (get_unicode_input_mode()) {
         case UC_LNX:
-            oled_write_ln_P(PSTR("Linux"),false);
+            oled_write_ln_P(PSTR("\n\n\n\n   L\n   i\n   n\n   u\n   x\n\n\n\n"),false);
             break;
         case UC_OSX:
-            oled_write_ln_P(PSTR("MacOS"),false);
+            oled_write_ln_P(PSTR("\n\n\n\n   M\n   a\n   c\n   O\n   S\n\n\n\n"),false);
             break;
         case UC_WINC:
-            oled_write_ln_P(PSTR("Windows"),false);
+            oled_write_ln_P(PSTR("\n\n\n\n   W\n   i\n   n\n   d\n   o\n   w\n   s\n\n\n\n"),false);
             break;
     }
 }
-
+/*
 char keylog_str[24] = {};
 
 const char code_to_name[60] = {
@@ -319,9 +304,10 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
 void oled_render_keylog(void) {
     oled_write(keylog_str, false);
 }
-
+*/
+/*
 void render_bootmagic_status(bool status) {
-    /* Show Ctrl-Gui Swap options */
+    //Show Ctrl-Gui Swap options
     static const char PROGMEM logo[][2][3] = {
         {{0x97, 0x98, 0}, {0xb7, 0xb8, 0}},
         {{0x95, 0x96, 0}, {0xb5, 0xb6, 0}},
@@ -334,7 +320,8 @@ void render_bootmagic_status(bool status) {
         oled_write_ln_P(logo[1][1], false);
     }
 }
-
+*/
+/*
 void oled_render_logo(void) {
     static const char PROGMEM crkbd_logo[] = {
     0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94,
@@ -342,7 +329,7 @@ void oled_render_logo(void) {
     0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4,
     0};
     oled_write_P(crkbd_logo, false);
-}
+}*/
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_render_input_layer();
@@ -354,6 +341,7 @@ bool oled_task_user(void) {
 void suspend_power_down_user(void) {
     oled_off();
 }
+#endif // OLED_ENABLEk
 
 bool ctl_interrupted = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -435,4 +423,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
-#endif // OLED_ENABLEk
