@@ -148,6 +148,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         //`--------------------------'  `--------------------------'
                     ),
 
+                    //SYMBOLS
+                    /*
+                                    X   !   @   #   $   %                                                      |    &   (   )   *   /
+                                    X   \   <   >   /   X                                                      ^    =   [   ]   _   ~
+                                  LSFT  ¡   ¿   ?   !   X                                                      `    :   {   }   -  SFT
+                                                ñ   X  SPC                                                    ENT  EMO ALT
+                    */
+                    [SYMBOLS] = LAYOUT_split_3x6_3(
+                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+                        XXXXXXX, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_PIPE, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_PSLS,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                        XXXXXXX, KC_BSLS, KC_LABK, KC_RABK, KC_PSLS, XXXXXXX,                       KC_CIRC,  KC_EQL, KC_LBRC, KC_RBRC,KC_UNDS, KC_TILD,
+                    //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
+               KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),KC_QUES,KC_EXLM,XXXXXXX,                     KC_GRV, KC_COLON,KC_LCBR, KC_RCBR,KC_MINUS, KC_RSFT,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                                                        ENIE ,   XXXXXXX,   KC_SPC,  KC_ENT,   EMOJI_KEY,   KC_RALT
+                                                        //`--------------------------'  `--------------------------¿
+                    ),
+
                     //NUMPAD LAYER
                     //PPLS = +
                     //PMNS = -
@@ -158,9 +177,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_ESC,  KC_DEL,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      KC_PSCR, RGB_HUI, RGB_SAI, RGB_VAI, KC_VOLU, UNICODE_MODE_WINC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                          KC_P0, KC_PAST,   KC_P4,   KC_P5,   KC_P6, KC_PSLS,                      KC_MUTE, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, UNICODE_MODE_LNX,
+                          KC_P0, KC_PMNS,   KC_P4,   KC_P5,   KC_P6, KC_PPLS,                      KC_MUTE, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, UNICODE_MODE_LNX,
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
-                         KC_DOT, KC_PPLS,   KC_P1,   KC_P2,   KC_P3, KC_PMNS,         TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43, UNICODE_MODE_MAC,
+                         KC_DOT, KC_PSLS,   KC_P1,   KC_P2,   KC_P3, KC_PAST,         TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43, UNICODE_MODE_MAC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                              KC_ENT, KC_LALT, KC_SPC,      KC_ENT, KC_LSFT, MO(NUMPAD2)
                                                         //`--------------------------'  `--------------------------'
@@ -190,19 +209,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                             KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT
                                                         //`--------------------------'  `--------------------------'
-                    ),
-
-                    //SYMBOLS
-                    [SYMBOLS] = LAYOUT_split_3x6_3(
-                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-               X(L_EXCLAMATION), KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      XXXXXXX, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_BSPC,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_UNDS, KC_BSLS, KC_LABK, KC_RABK, KC_PSLS,KC_MINUS,                      KC_CIRC,  KC_EQL, KC_LBRC, KC_RBRC, KC_PPLS, KC_TILD,
-                    //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
-               KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),KC_QUES, KC_EXLM, XXXXXXX,                   KC_GRV, KC_PIPE, KC_LCBR, KC_RCBR,EMOJI_KEY, KC_RSFT,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                        ENIE ,   XXXXXXX,   KC_SPC,  KC_ENT,   XXXXXXX,   KC_RALT
-                                                        //`--------------------------'  `--------------------------¿
                     ),
 
                     //SHORTCUTS LAYER
