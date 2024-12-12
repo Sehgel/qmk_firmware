@@ -150,21 +150,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                     //SYMBOLS
                     /*
-                                    X   !   @   #   $   %                                                      |    &   (   )   *   /
-                                    X   \   <   >   /   X                                                      ^    =   [   ]   _   ~
+                                    X   !   @   #   $   %                                                      |    &   (   )   *  BKS
+                                    X   \   <   >   /   *                                                      ^    =   [   ]   _   ~
                                   LSFT  ¡   ¿   ?   !   X                                                      `    :   {   }   -  SFT
                                                 ñ   X  SPC                                                    ENT  EMO ALT
                     */
                     [SYMBOLS] = LAYOUT_split_3x6_3(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                        XXXXXXX, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_PIPE, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_PSLS,
+                        XXXXXXX, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_PIPE, KC_AMPR, KC_LPRN, KC_RPRN, KC_ASTR, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        XXXXXXX, KC_BSLS, KC_LABK, KC_RABK, KC_PSLS, XXXXXXX,                       KC_CIRC,  KC_EQL, KC_LBRC, KC_RBRC,KC_UNDS, KC_TILD,
+                        XXXXXXX, KC_BSLS, KC_LABK, KC_RABK, KC_PSLS, KC_ASTR,                       KC_CIRC,  KC_EQL, KC_LBRC, KC_RBRC,KC_UNDS, KC_TILD,
                     //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
                KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),KC_QUES,KC_EXLM,XXXXXXX,                     KC_GRV, KC_COLON,KC_LCBR, KC_RCBR,KC_MINUS, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                         ENIE ,   XXXXXXX,   KC_SPC,  KC_ENT,   EMOJI_KEY,   KC_RALT
-                                                        //`--------------------------'  `--------------------------¿
+                                                        //`--------------------------'  `--------------------------
                     ),
 
                     //NUMPAD LAYER
