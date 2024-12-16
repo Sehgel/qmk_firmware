@@ -177,9 +177,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_ESC,  KC_DEL,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      KC_PSCR, RGB_HUI, RGB_SAI, RGB_VAI, KC_VOLU, UNICODE_MODE_WINC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                          KC_P0, KC_PMNS,   KC_P4,   KC_P5,   KC_P6, KC_PPLS,                      KC_MUTE, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, UNICODE_MODE_LNX,
+                          KC_P0, KC_PSLS,   KC_P4,   KC_P5,   KC_P6, KC_PAST,                      KC_MUTE, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, UNICODE_MODE_LNX,
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
-                         KC_DOT, KC_PSLS,   KC_P1,   KC_P2,   KC_P3, KC_PAST,         TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43, UNICODE_MODE_MAC,
+                         KC_DOT, KC_PMNS,   KC_P1,   KC_P2,   KC_P3, KC_PPLS,         TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43, UNICODE_MODE_MAC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                              KC_ENT, KC_LALT, KC_SPC,      KC_ENT, KC_LSFT, MO(NUMPAD2)
                                                         //`--------------------------'  `--------------------------'
