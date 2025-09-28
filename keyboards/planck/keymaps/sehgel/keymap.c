@@ -289,7 +289,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//--------------------------------------------------------------------------------------------------------------------
 	KC_MUTE,KC_VOLD,KC_MPRV,KC_MPLY,KC_MNXT,KC_VOLU,/*------------------*/XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,KC_APP ,
 	//--------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,XXXXXXX,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,KC_LALT,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX
+	XXXXXXX,XXXXXXX,KC_LALT,XXXXXXX,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,KC_LALT,XXXXXXX,KC_PSCR,XXXXXXX,XXXXXXX
 	//--------------------------------------------------------------------------------------------------------------------
 ),
 
