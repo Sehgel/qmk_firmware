@@ -16,14 +16,14 @@
 
 #pragma once
 
-#ifdef AUDIO_ENABLE
+/*#ifdef AUDIO_ENABLE
 #    define STARTUP_SONG SONG(PLANCK_SOUND)
 // #define STARTUP_SONG SONG(NO_SOUND)
 
 #    define DEFAULT_LAYER_SONGS \
         { SONG(QWERTY_SOUND), SONG(COLEMAK_SOUND), SONG(DVORAK_SOUND) }
 #endif
-
+*/
 /*
  * MIDI options
  */
@@ -32,7 +32,7 @@
    - MIDI notes can be sent when in Music mode is on
 */
 
-#define MIDI_BASIC
+//#define MIDI_BASIC
 
 /* enable advanced MIDI features:
    - MIDI notes can be added to the keymap

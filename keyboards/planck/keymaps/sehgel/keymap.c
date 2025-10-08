@@ -229,7 +229,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	KC_LSFT,X(L_EXCLAMATION),X(L_QUESTION),KC_QUES,KC_EXLM,XXXXXXX,/*------------------*/KC_GRV ,KC_COLON ,KC_LCBR,KC_RCBR,KC_MINUS,KC_RSFT,
 	//--------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX         ,XXXXXXX      ,ENIE   ,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,EMOJI_KEY,KC_RALT,XXXXXXX,XXXXXXX ,XXXXXXX
+	XXXXXXX,XXXXXXX         ,KC_LALT      ,ENIE   ,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,XXXXXXX  ,EMOJI_KEY,XXXXXXX,XXXXXXX ,XXXXXXX
 	//--------------------------------------------------------------------------------------------------------------------------------------
 ),
 
