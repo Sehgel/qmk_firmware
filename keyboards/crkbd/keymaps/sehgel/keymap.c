@@ -229,6 +229,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 uint32_t layer_state_set_user(uint32_t state) {
   switch(biton32(state)) {
     case NUMPAD:
+    case NUMPAD:
+    case NUMPAD2:
         // turn on numlock, if it isn't already on.
         if (!(host_keyboard_leds() & (1<<USB_LED_NUM_LOCK))) {
             register_code(KC_NUMLOCK);
