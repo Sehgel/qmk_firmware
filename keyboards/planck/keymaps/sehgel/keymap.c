@@ -15,7 +15,7 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "muse.h"
+//#include "muse.h"
 
 
 enum{
