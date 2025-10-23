@@ -46,4 +46,4 @@
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
 
 // Most tactile encoders have detents every 4 stages
-#define ENCODER_RESOLUTION 4
+//#define ENCODER_RESOLUTION 4

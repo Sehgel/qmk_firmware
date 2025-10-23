@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	KC_LSFT,KC_Z   ,KC_X   ,KC_C   ,KC_V               ,KC_B  ,/*------------------*/KC_N  ,KC_M          ,KC_COMM      ,KC_DOT     ,KC_QUOTE,KC_RSFT,
 	//---------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,KC_LWIN,MO(GAMEPLAY_NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(FUNCTIONS),MO(SYMBOLS),XXXXXXX ,XXXXXXX
+	XXXXXXX,XXXXXXX,KC_LWIN,KC_LALT,MO(GAMEPLAY_NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(SYMBOLS),MO(FUNCTIONS),XXXXXXX ,XXXXXXX
 	//---------------------------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -113,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//----------------------------------------------------------------------------------------------------------------------------------------------------
 	KC_LSFT      ,KC_SCLN ,KC_Q    ,KC_J   ,KC_K      ,KC_X  ,/*------------------*/KC_B  ,KC_M          ,KC_W         ,KC_V       ,KC_Z   ,KC_RSFT      ,
 	//----------------------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX      ,XXXXXXX ,KC_LALT ,KC_LWIN,MO(NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(FUNCTIONS),MO(SYMBOLS),XXXXXXX,XXXXXXX      
+	XXXXXXX      ,XXXXXXX ,KC_LWIN ,KC_LALT,MO(NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(SYMBOLS),MO(FUNCTIONS),XXXXXXX,XXXXXXX      
 	//----------------------------------------------------------------------------------------------------------------------------------------------------      
 ),
 
@@ -136,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	KC_LSFT,KC_Z   ,KC_X   ,KC_M   ,KC_C      ,KC_V  ,/*------------------*/KC_K  ,KC_L          ,KC_COMMA     ,KC_DOT     ,KC_SCLN ,KC_RSFT,
 	//---------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,KC_LWIN,MO(NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(FUNCTIONS),MO(SYMBOLS),XXXXXXX ,XXXXXXX
+	XXXXXXX,XXXXXXX,KC_LWIN,KC_LALT,MO(NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(SYMBOLS),MO(FUNCTIONS),XXXXXXX ,XXXXXXX
 	//---------------------------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -159,7 +159,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	KC_LSFT,KC_Z   ,KC_X   ,KC_C   ,KC_D      ,KC_V  ,/*------------------*/KC_K  ,KC_H          ,KC_SCLN      ,KC_QUOTE   ,KC_COMMA,KC_RSFT,
 	//---------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,KC_LWIN,MO(NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(FUNCTIONS),MO(SYMBOLS),XXXXXXX ,XXXXXXX
+	XXXXXXX,XXXXXXX,KC_LWIN,KC_LALT,MO(NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(SYMBOLS),MO(FUNCTIONS),XXXXXXX ,XXXXXXX
 	//---------------------------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -182,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
 	KC_LSFT      ,KC_X   ,KC_K   ,KC_DOT ,KC_COMMA  ,KC_SCLN,/*------------------*/KC_V ,KC_M          ,KC_C         ,KC_W       ,KC_Z         ,KC_RSFT ,
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX      ,XXXXXXX,KC_LALT,KC_LWIN,MO(NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(FUNCTIONS),MO(SYMBOLS),XXXXXXX      ,XXXXXXX 
+	XXXXXXX      ,XXXXXXX,KC_LWIN,KC_LALT,MO(NUMPAD),KC_SPC,/*------------------*/KC_ENT,MO(NAVIGATION),MO(SYMBOLS),MO(FUNCTIONS),XXXXXXX      ,XXXXXXX 
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -205,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //--------------------------------------------------------------------------------------------------------------------
   KC_LSFT,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,/*------------------*/KC_F16,KC_F17 ,KC_F18 ,KC_F19  ,KC_F20 ,KC_F21 ,
   //--------------------------------------------------------------------------------------------------------------------
-  XXXXXXX,XXXXXXX,KC_LALT,KC_LWIN,SCAM   ,KC_SPC ,/*------------------*/KC_ENT,KC_LALT,XXXXXXX,XXXXXXX ,XXXXXXX,XXXXXXX
+  XXXXXXX,XXXXXXX,KC_LWIN,KC_LALT,SCAM   ,KC_SPC ,/*------------------*/KC_ENT,XXXXXXX,XXXXXXX,XXXXXXX ,XXXXXXX,XXXXXXX
   //--------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -227,9 +227,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	KC_LCTL,KC_BSLS         ,KC_LABK      ,KC_RABK,KC_PSLS,KC_ASTR,/*------------------*/KC_CIRC,KC_EQL   ,KC_LBRC,KC_RBRC,KC_UNDS ,KC_TILD,
 	//--------------------------------------------------------------------------------------------------------------------------------------
-	KC_LSFT,X(L_EXCLAMATION),X(L_QUESTION),KC_QUES,KC_EXLM,XXXXXXX,/*------------------*/KC_GRV ,KC_COLON ,KC_LCBR,KC_RCBR,KC_MINUS,KC_RSFT,
+	KC_LSFT,X(L_EXCLAMATION),X(L_QUESTION),KC_QUES,KC_EXLM,   ENIE,/*------------------*/KC_GRV ,KC_COLON ,KC_LCBR,KC_RCBR,KC_MINUS,KC_RSFT,
 	//--------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX         ,KC_LALT      ,ENIE   ,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,XXXXXXX  ,EMOJI_KEY,XXXXXXX,XXXXXXX ,XXXXXXX
+	XXXXXXX,XXXXXXX         ,      XXXXXXX,KC_LALT,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,XXXXXXX  ,EMOJI_KEY,XXXXXXX,XXXXXXX ,XXXXXXX
 	//--------------------------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -241,7 +241,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//----------------------------------------------------------------------------------------------------------------------------------------------
 	KC_DOT ,KC_PMNS,KC_P1  ,KC_P2 ,KC_P3  ,KC_PPLS,/*------------------*/TO_QWERTY,TO_DVORAK,TO_WORKMAN ,TO_COLEMAK_DH,TO_BEAKL43,UNICODE_MODE_MAC ,
 	//----------------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,KC_ENT,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT   ,KC_LSFT  ,MO(NUMPAD2),XXXXXXX      ,XXXXXXX   ,XXXXXXX          
+	XXXXXXX,XXXXXXX,KC_ENT,KC_LALT,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT   ,KC_LSFT  ,MO(NUMPAD2),XXXXXXX      ,XXXXXXX   ,XXXXXXX          
 	//---------------------------------------------------------------------------------------------------------------------------------------------- 
 ),
 
@@ -253,7 +253,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//--------------------------------------------------------------------------------------------------------------------
 	KC_LSFT,XXXXXXX,KC_1   ,KC_2   ,KC_3   ,XXXXXXX,/*------------------*/XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,KC_RSFT,
 	//--------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,XXXXXXX,KC_RALT,KC_SPC ,/*------------------*/KC_ENT ,KC_LALT,KC_RALT,XXXXXXX,XXXXXXX,XXXXXXX
+	XXXXXXX,XXXXXXX,XXXXXXX,KC_LALT,KC_RALT,KC_SPC ,/*------------------*/KC_ENT ,KC_LALT,KC_RALT,XXXXXXX,XXXXXXX,XXXXXXX
 	//--------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -265,7 +265,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//------------------------------------------------------------------------------------------------------------------------------------
 	KC_LSFT,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,/*------------------*/TO_QWERTY,TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43,XXXXXXX,
 	//------------------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,XXXXXXX,KC_RALT,KC_SPC ,/*------------------*/KC_ENT   ,KC_LALT  ,KC_RALT   ,XXXXXXX      ,XXXXXXX   ,XXXXXXX
+	XXXXXXX,XXXXXXX,XXXXXXX,KC_LALT,KC_RALT,KC_SPC ,/*------------------*/KC_ENT   ,KC_LALT  ,KC_RALT   ,XXXXXXX      ,XXXXXXX   ,XXXXXXX
 	//------------------------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -277,7 +277,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//------------------------------------------------------------------------------------------------------------------------
 	KC_LSFT,KC_Z   ,KC_X   ,KC_C   ,KC_V        ,KC_B  ,/*------------------*/KC_N  ,KC_M   ,KC_COMM,KC_DOT ,KC_QUOTE,KC_RSFT,
 	//------------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,XXXXXXX,SWITCH_AUDIO,KC_SPC,/*------------------*/KC_ENT,XXXXXXX,KC_RALT,XXXXXXX,XXXXXXX ,XXXXXXX
+	XXXXXXX,XXXXXXX,XXXXXXX,KC_LALT,SWITCH_AUDIO,KC_SPC,/*------------------*/KC_ENT,XXXXXXX,KC_RALT,XXXXXXX,XXXXXXX ,XXXXXXX
 	//------------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -289,7 +289,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//--------------------------------------------------------------------------------------------------------------------
 	KC_MUTE,KC_VOLD,KC_MPRV,KC_MPLY,KC_MNXT,KC_VOLU,/*------------------*/XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,KC_APP ,
 	//--------------------------------------------------------------------------------------------------------------------
-	XXXXXXX,XXXXXXX,KC_LALT,KC_LWIN,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,KC_LALT,XXXXXXX,KC_PSCR,XXXXXXX,XXXXXXX
+	XXXXXXX,XXXXXXX,KC_LWIN,KC_LALT,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,KC_LALT,KC_PSCR,XXXXXXX,XXXXXXX,XXXXXXX
 	//--------------------------------------------------------------------------------------------------------------------
 ),
 
@@ -320,10 +320,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 */
 
-bool ctl_interrupted = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
-        ctl_interrupted = true;
         switch(keycode){
             case OPEN_QUESTION_MARK:
                 register_code(KC_LALT);
