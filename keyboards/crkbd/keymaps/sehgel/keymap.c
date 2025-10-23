@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|       SYMBOLS      |--------+--------+--------+--------+--------+--------|
                KC_LSFT, X(L_EXCLAMATION),X(L_QUESTION),KC_QUES,KC_EXLM, ENIE,                       KC_GRV,KC_COLON, KC_LCBR, KC_RCBR,KC_MINUS, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                   XXXXXXX,KC_LALT, XXXXXXX,   KC_SPC,  KC_ENT,   XXXXXXX,EMOJI_KEY, XXXXXXX
+                                                   XXXXXXX,KC_LALT, XXXXXXX,   KC_SPC,  KC_ENT,   EMOJI_KEY,XXXXXXX, XXXXXXX
                                                         //`--------------------------'  `--------------------------
                     ),
 
