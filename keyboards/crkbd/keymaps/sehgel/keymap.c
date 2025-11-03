@@ -84,45 +84,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         //`--------------------------'  `--------------------------'
                     ),
 
-                    //DVORAK LAYOUT
-                    [DVORAK] = LAYOUT_split_3x6_4(
-                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_TAB,KC_QUOTE,KC_COMMA,  KC_DOT,    KC_P,    KC_Y,                         KC_F,    KC_G,    KC_C,    KC_R,    KC_L, KC_BSPC,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                  MO(SHORTCUTS),    KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                         KC_D,    KC_H,    KC_T,    KC_N,    KC_S,MO(SHORTCUTS),
-                    //|--------+--------+--------+--------+--------+--------|       DVORAK       |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_RSFT,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                   KC_LWIN,KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
-                                                        //`--------------------------'  `--------------------------'
-                    ),
-
-                    //WORKMAN LAYOUT
-                    [WORKMAN] = LAYOUT_split_3x6_4(
-                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_TAB,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                         KC_J,    KC_F,    KC_U,    KC_P,KC_QUOTE, KC_BSPC,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                         KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_RCTL,
-                    //|--------+--------+--------+--------+--------+--------|       WORKMAN      |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L,KC_COMMA,  KC_DOT, KC_SCLN, KC_RSFT,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                   KC_LWIN,KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
-                                                        //`--------------------------'  `--------------------------'
-                    ),
-
-                    //COLEMAK_DH LAYOUT
-                    [COLEMAK_DH] = LAYOUT_split_3x6_4(
-                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y,  KC_DOT, KC_BSPC,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, KC_RCTL,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_SCLN,KC_QUOTE,KC_COMMA, KC_RSFT,
-                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                   KC_LWIN,KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
-                                                        //`--------------------------'  `--------------------------'
-                    ),
-
                     //BEAKL43 LAYOUT
                     [BEAKL43] = LAYOUT_split_3x6_4(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -130,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                   MO(SHORTCUTS),    KC_J,    KC_I,    KC_E,    KC_A,    KC_Y,                         KC_D,    KC_T,    KC_S,    KC_N,MO(SHORTCUTS), KC_QUOTE,
                     //|--------+--------+--------+--------+--------+--------|       BEAKL43      |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT,    KC_X,    KC_K, KC_DOT ,KC_COMMA  ,KC_SCLN,                         KC_V,    KC_M,    KC_C,    KC_W,    KC_Z, KC_RSFT,
+                        KC_LSFT,    KC_X,    KC_K, KC_DOT ,KC_COMMA  ,KC_SCLN,                        KC_V,    KC_M,    KC_C,    KC_W,    KC_Z, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                                    KC_LWIN,KC_LALT, MO(NUMPAD), KC_SPC,  KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
                                                         //`--------------------------'  `--------------------------'
@@ -141,9 +102,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
                          KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_INS, KC_HOME,   KC_UP,  KC_END, KC_PGUP, KC_BSPC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_DEL, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, XXXXXXX,
+                        KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_DEL, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN,  KC_F21,
                     //|--------+--------+--------+--------+--------+--------|     NAVIGATION     |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,
+                        KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_F22, KC_LABK, KC_PENT, KC_RABK,  KC_F23,  KC_F24,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                                           KC_LWIN, KC_LALT,    SCAM,  KC_SPC,              KC_ENT, XXXXXXX,  XXXXXXX, XXXXXXX
                                                         //`--------------------------'  `--------------------------'
@@ -182,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
                          KC_DOT, KC_PMNS,   KC_P1,   KC_P2,   KC_P3, KC_PPLS,         TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43, UNICODE_MODE_MAC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                   KC_LWIN,  KC_ENT, XXXXXXX,  KC_SPC,      KC_ENT, KC_LSFT, MO(NUMPAD2),XXXXXXX
+                                                   KC_LWIN, KC_PENT, XXXXXXX,  KC_SPC,      KC_ENT, KC_LSFT, MO(NUMPAD2),XXXXXXX
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -235,6 +196,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //--------------------------------------------------------------------------------------------------------------------
                                     KC_LWIN,KC_LALT,XXXXXXX,KC_SPC ,/*------------------*/KC_ENT ,KC_LALT,KC_PSCR,XXXXXXX
                     //--------------------------------------------------------------------------------------------------------------------
+                    ),
+
+		    //DVORAK LAYOUT
+                    [DVORAK] = LAYOUT_split_3x6_4(
+                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+                         KC_TAB,KC_QUOTE,KC_COMMA,  KC_DOT,    KC_P,    KC_Y,                         KC_F,    KC_G,    KC_C,    KC_R,    KC_L, KC_BSPC,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                  MO(SHORTCUTS),    KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                         KC_D,    KC_H,    KC_T,    KC_N,    KC_S,MO(SHORTCUTS),
+                    //|--------+--------+--------+--------+--------+--------|       DVORAK       |--------+--------+--------+--------+--------+--------|
+                        KC_LSFT, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_RSFT,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                                                   KC_LWIN,KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
+                                                        //`--------------------------'  `--------------------------'
+                    ),
+
+                    //WORKMAN LAYOUT
+                    [WORKMAN] = LAYOUT_split_3x6_4(
+                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+                         KC_TAB,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                         KC_J,    KC_F,    KC_U,    KC_P,KC_QUOTE, KC_BSPC,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                        KC_LCTL,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                         KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_RCTL,
+                    //|--------+--------+--------+--------+--------+--------|       WORKMAN      |--------+--------+--------+--------+--------+--------|
+                        KC_LSFT,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L,KC_COMMA,  KC_DOT, KC_SCLN, KC_RSFT,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                                                   KC_LWIN,KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
+                                                        //`--------------------------'  `--------------------------'
+                    ),
+
+                    //COLEMAK_DH LAYOUT
+                    [COLEMAK_DH] = LAYOUT_split_3x6_4(
+                    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+                         KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y,  KC_DOT, KC_BSPC,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                        KC_LCTL,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, KC_RCTL,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_SCLN,KC_QUOTE,KC_COMMA, KC_RSFT,
+                    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+                                                   KC_LWIN,KC_LALT, MO(NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
+                                                        //`--------------------------'  `--------------------------'
                     ),
 };
 
