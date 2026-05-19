@@ -16,12 +16,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
+
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
 enum{
-    QWERTY = SAFE_RANGE,
-    OPEN_QUESTION_MARK,
+    OPEN_QUESTION_MARK = SAFE_RANGE,
     SMALL_ENIE,
     BIG_ENIE,
     CLOSE_QUESTION_MARK,
@@ -36,7 +37,10 @@ enum{
     UC_TO_MAC,
     CTL_MOD,
     SCAM,
-    EMOJI_KEY
+    EMOJI_KEY,
+    GM_KEY,//GM = Gamemode
+    GM_WIN_KEY,
+    GM_NUMPAD_KEY
 };
 
 #define QWERTY 0
@@ -80,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|       QWERTY       |--------+--------+--------+--------+--------+--------|
 			KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT,KC_QUOTE, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                 KC_LWIN,KC_LALT, MO(GAMEPLAY_NUMPAD), KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
+                                                GM_WIN_KEY, KC_LALT, GM_NUMPAD_KEY, KC_SPC,    KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -93,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------|       BEAKL43      |--------+--------+--------+--------+--------+--------|
                         KC_LSFT,    KC_X,    KC_K, KC_DOT ,KC_COMMA  ,KC_SCLN,                        KC_V,    KC_M,    KC_C,    KC_W,    KC_Z, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                   KC_LWIN,KC_LALT, MO(NUMPAD), KC_SPC,  KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
+                                                   KC_LWIN,KC_LALT, GM_NUMPAD_KEY, KC_SPC,  KC_ENT, MO(NAVIGATION), MO(SYMBOLS),MO(FUNCTIONS)
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -136,39 +140,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //PSLS = /
                     [NUMPAD] = LAYOUT_split_3x6_4(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_ESC,  KC_DEL,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, UNICODE_MODE_WINC,
+                         KC_ESC,  KC_DEL,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                       GM_KEY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, UNICODE_MODE_WINC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LCTL, KC_PSLS,   KC_P4,   KC_P5,   KC_P6, KC_PAST,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, UNICODE_MODE_LNX,
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD       |--------+--------+--------+--------+--------+--------|
                          KC_DOT, KC_PMNS,   KC_P1,   KC_P2,   KC_P3, KC_PPLS,         TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43, UNICODE_MODE_MAC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                     KC_P0, KC_PENT, XXXXXXX,  KC_SPC,     KC_ENT, KC_LSFT, MO(NUMPAD2),XXXXXXX
+                                                     KC_P0, KC_PENT, KC_TRNS,  KC_SPC,     KC_ENT, KC_LSFT, MO(NUMPAD2),XXXXXXX
                                                         //`--------------------------'  `--------------------------'
                     ),
 
                     //NUMPAD2 LAYER
                     [NUMPAD2] = LAYOUT_split_3x6_4(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                        XXXXXXX, XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                        XXXXXXX, XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX,                       GM_KEY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
                         KC_LCTL, XXXXXXX,    KC_4,    KC_5,    KC_6, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     //|--------+--------+--------+--------+--------+--------|       NUMPAD2      |--------+--------+--------+--------+--------+--------|
                         KC_LSFT, XXXXXXX,    KC_1,    KC_2,    KC_3, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                    KC_LWIN,KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT, XXXXXXX
+                                                    KC_LWIN,KC_LALT, KC_TRNS,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT, XXXXXXX
                                                         //`--------------------------'  `--------------------------'
                     ),
 
                     //GAMEPLAY LAYER
                     [GAMEPLAY_NUMPAD] = LAYOUT_split_3x6_4(
                     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-                         KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+                         KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       GM_KEY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, UNICODE_MODE_WINC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                        KC_LCTL,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
+                        KC_LCTL,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, UNICODE_MODE_LNX,
                     //|--------+--------+--------+--------+--------+--------|  GAMEPLAY NUMPAD   |--------+--------+--------+--------+--------+--------|
-                        KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,           TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43,XXXXXXX,
+                        KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,               TO_QWERTY, TO_DVORAK,TO_WORKMAN,TO_COLEMAK_DH,TO_BEAKL43,UNICODE_MODE_MAC,
                     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-                                                    KC_LWIN,KC_LALT, KC_RALT,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT, XXXXXXX
+                                                    XXXXXXX,KC_LALT, KC_TRNS,  KC_SPC,   KC_ENT,   KC_LALT, KC_RALT, XXXXXXX
                                                         //`--------------------------'  `--------------------------'
                     ),
 
@@ -237,8 +241,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     ),
 };
 
+void keyboard_post_init_user(void) {
+  // turn on numlock, if it isn't already on.
+  if (!(host_keyboard_leds() & (1<<USB_LED_NUM_LOCK))) {
+    tap_code(KC_NUMLOCK);
+  }
+}
 
-uint32_t layer_state_set_user(uint32_t state) {
+/*uint32_t layer_state_set_user(uint32_t state) {
   switch(biton32(state)) {
     case NUMPAD:
     case NUMPAD2:
@@ -251,9 +261,10 @@ uint32_t layer_state_set_user(uint32_t state) {
         break;
   }
   return state;
-};
+  };*/
 
 
+bool game_mode = false;
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     if (is_keyboard_master()) {
@@ -262,40 +273,105 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return OLED_ROTATION_270;
   //return rotation;
 }
-
 void oled_render_type_layer(void) {
+    oled_set_cursor(3,10); oled_write_P(PSTR(" "), false);
+    oled_set_cursor(3,11); oled_write_P(PSTR(" "), false);
+    oled_set_cursor(3,12); oled_write_P(PSTR(" "), false);
+    oled_set_cursor(3,13); oled_write_P(PSTR(" "), false);
     switch(get_highest_layer(default_layer_state)){
         case QWERTY:
-            oled_write_ln_P(PSTR("\n\n\n\n   Q\n   w\n   e\n   r\n   t\n   y\n\n\n\n"),false);
+	    oled_set_cursor(3, 4); oled_write_P(PSTR("Q"), false);
+            oled_set_cursor(3, 5); oled_write_P(PSTR("w"), false);
+            oled_set_cursor(3, 6); oled_write_P(PSTR("e"), false);
+            oled_set_cursor(3, 7); oled_write_P(PSTR("r"), false);
+            oled_set_cursor(3, 8); oled_write_P(PSTR("t"), false);
+            oled_set_cursor(3, 9); oled_write_P(PSTR("y"), false);
             break;
         case DVORAK:
-            oled_write_ln_P(PSTR("\n\n\n\n   D\n   v\n   o\n   r\n   a\n   k\n\n\n\n"),false);
+	    oled_set_cursor(3, 4); oled_write_P(PSTR("D"), false);
+            oled_set_cursor(3, 5); oled_write_P(PSTR("v"), false);
+            oled_set_cursor(3, 6); oled_write_P(PSTR("o"), false);
+            oled_set_cursor(3, 7); oled_write_P(PSTR("r"), false);
+            oled_set_cursor(3, 8); oled_write_P(PSTR("a"), false);
+            oled_set_cursor(3, 9); oled_write_P(PSTR("k"), false);
             break;
         case WORKMAN:
-            oled_write_ln_P(PSTR("\n\n\n\n   W\n   o\n   r\n   k\n   m\n   a\n   n\n\n\n\n"),false);
+ 	    oled_set_cursor(3, 4); oled_write_P(PSTR("W"), false);
+            oled_set_cursor(3, 5); oled_write_P(PSTR("o"), false);
+            oled_set_cursor(3, 6); oled_write_P(PSTR("r"), false);
+            oled_set_cursor(3, 7); oled_write_P(PSTR("k"), false);
+            oled_set_cursor(3, 8); oled_write_P(PSTR("m"), false);
+            oled_set_cursor(3, 9); oled_write_P(PSTR("a"), false);
+	    oled_set_cursor(3, 10);oled_write_P(PSTR("n"), false);
             break;
         case COLEMAK_DH:
-            oled_write_ln_P(PSTR("\n\n\n\n   C\n   o\n   l\n   e\n   m\n   a\n   k\n   -\n   D\n   H\n\n\n\n"),false);
+	    oled_set_cursor(3, 4); oled_write_P(PSTR("C"), false);
+            oled_set_cursor(3, 5); oled_write_P(PSTR("o"), false);
+            oled_set_cursor(3, 6); oled_write_P(PSTR("l"), false);
+            oled_set_cursor(3, 7); oled_write_P(PSTR("e"), false);
+            oled_set_cursor(3, 8); oled_write_P(PSTR("m"), false);
+            oled_set_cursor(3, 9); oled_write_P(PSTR("a"), false);
+	    oled_set_cursor(3, 10);oled_write_P(PSTR("k"), false);
+	    oled_set_cursor(3, 11);oled_write_P(PSTR("-"), false);
+	    oled_set_cursor(3, 12);oled_write_P(PSTR("D"), false);
+	    oled_set_cursor(3, 13);oled_write_P(PSTR("H"), false);
             break;
         case BEAKL43:
-            oled_write_ln_P(PSTR("\n\n\n\n   B\n   e\n   a\n   k\n   l\n   4\n   3\n\n\n\n"),false);
+  	    oled_set_cursor(3, 4); oled_write_P(PSTR("B"), false);
+            oled_set_cursor(3, 5); oled_write_P(PSTR("e"), false);
+            oled_set_cursor(3, 6); oled_write_P(PSTR("a"), false);
+            oled_set_cursor(3, 7); oled_write_P(PSTR("k"), false);
+            oled_set_cursor(3, 8); oled_write_P(PSTR("l"), false);
+            oled_set_cursor(3, 9); oled_write_P(PSTR("4"), false);
+	    oled_set_cursor(3, 10);oled_write_P(PSTR("3"), false);
             break;
     }
 }
+
 void oled_render_input_layer(void) {
-    //oled_write_ln_P(PSTR("\n"),false);
+    oled_set_cursor(3,9); oled_write_P(PSTR(" "), false);
+    oled_set_cursor(3,10); oled_write_P(PSTR(" "), false);
     switch (get_unicode_input_mode()) {
         case UC_LNX:
-            oled_write_ln_P(PSTR("\n\n\n\n   L\n   i\n   n\n   u\n   x\n\n\n\n"),false);
+	    oled_set_cursor(3, 4); oled_write_P(PSTR("L"), false);
+            oled_set_cursor(3, 5); oled_write_P(PSTR("i"), false);
+            oled_set_cursor(3, 6); oled_write_P(PSTR("n"), false);
+            oled_set_cursor(3, 7); oled_write_P(PSTR("u"), false);
+            oled_set_cursor(3, 8); oled_write_P(PSTR("x"), false);
             break;
         case UC_OSX:
-            oled_write_ln_P(PSTR("\n\n\n\n   M\n   a\n   c\n   O\n   S\n\n\n\n"),false);
+	    oled_set_cursor(3, 4); oled_write_P(PSTR("M"), false);
+            oled_set_cursor(3, 5); oled_write_P(PSTR("a"), false);
+            oled_set_cursor(3, 6); oled_write_P(PSTR("c"), false);
+            oled_set_cursor(3, 7); oled_write_P(PSTR("O"), false);
+            oled_set_cursor(3, 8); oled_write_P(PSTR("S"), false);
             break;
         case UC_WINC:
-            oled_write_ln_P(PSTR("\n\n\n\n   W\n   i\n   n\n   d\n   o\n   w\n   s\n\n\n\n"),false);
+	    oled_set_cursor(3, 4); oled_write_P(PSTR("W"), false);
+            oled_set_cursor(3, 5); oled_write_P(PSTR("i"), false);
+            oled_set_cursor(3, 6); oled_write_P(PSTR("n"), false);
+            oled_set_cursor(3, 7); oled_write_P(PSTR("d"), false);
+            oled_set_cursor(3, 8); oled_write_P(PSTR("o"), false);
+	    oled_set_cursor(3, 9); oled_write_P(PSTR("w"), false);
+	    oled_set_cursor(3,10); oled_write_P(PSTR("s"), false);
             break;
     }
 }
+
+bool oled_task_user(void) {
+    if (is_keyboard_master()) {
+	oled_set_cursor(4, 0); oled_write_P(game_mode ? PSTR("G") : PSTR(" "), false);
+        oled_render_input_layer();
+    } else {
+        oled_render_type_layer();
+    }
+    return true;
+}
+
+void suspend_power_down_user(void) {
+    oled_off();
+}
+
 /*
 char keylog_str[24] = {};
 
@@ -350,24 +426,32 @@ void oled_render_logo(void) {
     0};
     oled_write_P(crkbd_logo, false);
 }*/
-bool oled_task_user(void) {
-    if (is_keyboard_master()) {
-        oled_render_input_layer();
-    } else {
-        oled_render_type_layer();
-    }
-    return true;
-}
-void suspend_power_down_user(void) {
-    oled_off();
-}
-#endif // OLED_ENABLEk
 
-bool ctl_interrupted = false;
+#endif // OLED_ENABLE
+
+static layer_state_t prev_layer_state = 0;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
-        ctl_interrupted = true;
         switch(keycode){
+	    case GM_KEY:
+		game_mode = !game_mode;
+		oled_render_type_layer();
+	        return true;
+	    case GM_WIN_KEY:
+	        if (!game_mode)
+	          tap_code(KC_LWIN);
+   	        return true;
+	    case GM_NUMPAD_KEY:
+	      if (!game_mode){
+		  prev_layer_state = layer_state;
+		  layer_on(NUMPAD);
+	      }
+	      else{
+		prev_layer_state = layer_state;
+		layer_on(GAMEPLAY_NUMPAD);
+	      }
+	        return true;
             case OPEN_QUESTION_MARK:
                 register_code(KC_LALT);
                 tap_code(KC_P1);
@@ -431,6 +515,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     else {
         switch(keycode){
+	    case GM_NUMPAD_KEY:
+	        layer_state_set(prev_layer_state);
+	        return true;
             case SCAM:
                 unregister_code(KC_LSFT);
                 unregister_code(KC_LCTL);
